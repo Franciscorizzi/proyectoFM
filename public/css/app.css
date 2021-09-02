@@ -1,6 +1,10 @@
+
 section{
     display: flex;
     flex-direction: row;
-
+    flex-wrap: wrap;
+} 
+article{
+    width: 350px;
+    margin: 20px;
 }
-

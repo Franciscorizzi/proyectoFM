@@ -9,12 +9,9 @@ function App() {
     <div>
         <Header/>
     <main>
-
         <BotonMas/>
         <CardContainer/>
-
   </main>
-  <div></div>
         <Footer/>
     </div>
   );

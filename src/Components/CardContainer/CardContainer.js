@@ -37,6 +37,13 @@ class CardContainer extends Component {
     .catch(error=> console.log(error))
 }
 
+deleteCard(peliculaABorrar){
+  let peliculasQueQuedan = this.state.datos.filter( pelicula => pelicula.id !== peliculaABorrar)
+
+  this.setState({datos: peliculasQueQuedan})
+
+}
+
 
   render(){
     console.log(this.state.datos);
@@ -44,7 +51,7 @@ class CardContainer extends Component {
     <React.Fragment>
       <section class="card-container">
        
-     {this.state.datos.map( (pelicula, idx) => <Card dataMovie={pelicula} key={idx}/>) }
+     {this.state.datos.map( (pelicula, idx) => <Card dataMovie={pelicula} remove={(peliculaABorrar)=> this.deleteCard(peliculaABorrar)} key={idx}/>) }
        
 </section>
  <div>

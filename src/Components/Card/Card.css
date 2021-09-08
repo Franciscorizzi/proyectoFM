@@ -11,10 +11,37 @@
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+   height: 710px;
 }
+
+.titulo-entero {
+    display: block;
+}
+
+.titulo {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;   
+}
+
+.description {
+   
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;   
+    
+}
+
+.description-entera {
+    display: block;
+}
+
 .movie-card img{
     width: 100%;
     margin-bottom: 20px; 
+    height: 486px;
 }
 .movie-card:hover,
 .active{
@@ -22,7 +49,9 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 }
 .link{
     color: blue;
+    
 }
+
 .link:hover{
     text-decoration: underline;
     cursor: pointer;
@@ -30,6 +59,8 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 .show{
     display: block;
 }
+
 .hide{
     display: none;
+    
 }

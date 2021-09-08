@@ -37,8 +37,8 @@ class Card extends Component {
     </section>
     <main className="movie-card">
         <img src={`https://image.tmdb.org/t/p/w500${this.props.dataMovie.poster_path}`} alt=""/>
-  <h3>{this.props.dataMovie.title}</h3>
-  <p class="description">{this.props.dataMovie.overview}</p>
+  <h3 className={this.state.viewMore ? 'titulo-entero' : 'titulo'}>{this.props.dataMovie.title}</h3>
+  <p class={this.state.viewMore ? 'description-entera' : 'description'}>{this.props.dataMovie.overview}</p>
         <section  class="aditional-info">
         <p className={this.state.viewMore ? 'show' : 'hide'}>Rating: {this.props.dataMovie.vote_average}</p>
         <p className={this.state.viewMore ? 'show' : 'hide'}>Fecha de estreno: {this.props.dataMovie.release_date}</p> 

@@ -27,7 +27,7 @@ class Card extends Component {
  
   return (
     
-<article>
+<article className={this.props.direccion ? "" : "todo"}>
 <section class="navigation">
         <div>
             {/* <i class="fas fa-chevron-left"></i>
@@ -35,17 +35,25 @@ class Card extends Component {
         </div>
         <i class="far fa-window-close"  onClick={()=> this.props.remove(this.props.dataMovie.id)} ></i>
     </section>
-    <main className="movie-card">
+    <main className={this.props.direccion ? "movie-card-para-filas" : "movie-card-para-columna"}>
         <img src={`https://image.tmdb.org/t/p/w500${this.props.dataMovie.poster_path}`} alt=""/>
+   <div className={this.props.direccion ? "" : "data-en-columna"}>
+
   <h3 className={this.state.viewMore ? 'titulo-entero' : 'titulo'}>{this.props.dataMovie.title}</h3>
-  <p class={this.state.viewMore ? 'description-entera' : 'description'}>{this.props.dataMovie.overview}</p>
-        <section  class="aditional-info">
-        <p className={this.state.viewMore ? 'show' : 'hide'}>Rating: {this.props.dataMovie.vote_average}</p>
+
+{this.props.direccion ? <p class={this.state.viewMore ? 'description-entera' : 'description'}>{this.props.dataMovie.overview}</p> : <p class="description-entera">{this.props.dataMovie.overview}</p>}
+  
+           
+        
+          {this.props.direccion ? <div className="aditional-info"> <p className={this.state.viewMore ? 'show' : 'hide'}>Rating: {this.props.dataMovie.vote_average}</p>
         <p className={this.state.viewMore ? 'show' : 'hide'}>Fecha de estreno: {this.props.dataMovie.release_date}</p> 
-        <p className={this.state.viewMore ? 'show' : 'hide'}>Cantidad de reproducciones: {this.props.dataMovie.popularity}</p>
+        <p className={this.state.viewMore ? 'show' : 'hide'}>Cantidad de reproducciones: {this.props.dataMovie.popularity}</p>  <p className="link" onClick={()=>this.clickeame()}>Ver {this.state.ver}</p></div> :  <div className="aditional-info"><p className="show">Rating: {this.props.dataMovie.vote_average}</p>
+        <p className="show">Fecha de estreno: {this.props.dataMovie.release_date}</p> 
+        <p className="show">Cantidad de reproducciones: {this.props.dataMovie.popularity}</p> </div>}
+     
        
-        </section>
-        <p className="link" onClick={()=>this.clickeame()}>Ver {this.state.ver}</p>
+       
+        </div>     
     </main>
 </article>
   );

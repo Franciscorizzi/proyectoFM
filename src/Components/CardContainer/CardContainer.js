@@ -8,7 +8,8 @@ class CardContainer extends Component {
     this.state = {
       datos: [],
       isLoaded: false,
-      nextUrl: ""
+      nextUrl: "",
+      filas: true
     }
   }
 
@@ -44,14 +45,39 @@ deleteCard(peliculaABorrar){
 
 }
 
+cambiarAColumnas(){
+
+  this.setState({
+    filas: false
+  })
+
+}
+
+cambiarAFilas(){
+  
+  this.setState({
+    filas: true
+  })
+
+}
 
   render(){
     console.log(this.state.datos);
   return (
     <React.Fragment>
-      <section class="card-container">
+      <section className="headercito">
+    <div className="iconos">
+    <i  onClick={()=>this.cambiarAFilas()} class="fas fa-th"></i>
+    <i onClick={()=>this.cambiarAColumnas()} class="fas fa-align-justify"></i>
+    </div>
+    <form action="">
+        <input type="text" name="search" id="" placeholder="Search"/>
+        <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</section>
+      <section className={this.state.filas ? 'card-container-en-filas' : 'card-container-en-columnas'}>
        
-     {this.state.datos.map( (pelicula, idx) => <Card dataMovie={pelicula} remove={(peliculaABorrar)=> this.deleteCard(peliculaABorrar)} key={idx}/>) }
+     {this.state.datos.map( (pelicula, idx) => <Card direccion={this.state.filas} dataMovie={pelicula} remove={(peliculaABorrar)=> this.deleteCard(peliculaABorrar)} key={idx}/>) }
        
 </section>
  <div>

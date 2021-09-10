@@ -28,7 +28,7 @@ class Card extends Component {
   return (
     
 <article className={this.props.direccion ? "" : "todo"}>
-<section class="navigation">
+<section className={this.props.direccion ? "navigation-para-fila" : "navigation-para-columna"}>
         <div>
             {/* <i class="fas fa-chevron-left"></i>
             <i class="fas fa-chevron-right"></i> */}

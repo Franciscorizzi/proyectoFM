@@ -17,7 +17,7 @@ class Header extends Component {
   return (
 
   <div className="titulardo">
-<h1>Cinematiic</h1>
+    <img src="./images/titulo-movie-joe.png" alt="titulomoviejoe"></img>
 </div>
 
   );

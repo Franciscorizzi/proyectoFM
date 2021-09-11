@@ -62,17 +62,16 @@ cambiarAFilas(){
 }
 
   render(){
-    console.log(this.state.datos);
   return (
     <React.Fragment>
       <section className="headercito">
     <div className="iconos">
-    <i  onClick={()=>this.cambiarAFilas()} class="fas fa-th"></i>
-    <i onClick={()=>this.cambiarAColumnas()} class="fas fa-align-justify"></i>
+    <i  onClick={()=>this.cambiarAFilas()} className="fas fa-th"></i>
+    <i onClick={()=>this.cambiarAColumnas()} className="fas fa-align-justify"></i>
     </div>
     <form action="">
         <input type="text" name="search" id="" placeholder="Search"/>
-        <button type="submit"><i class="fas fa-search"></i></button>
+        <button type="submit"><i className="fas fa-search"></i></button>
     </form>
     
 </section>

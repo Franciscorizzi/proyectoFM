@@ -30,8 +30,8 @@ class Card extends Component {
 <article className={this.props.direccion ? "" : "todo"}>
 <section className={this.props.direccion ? "navigation-para-fila" : "navigation-para-columna"}>
         <div>
-            {/* <i class="fas fa-chevron-left"></i>
-            <i class="fas fa-chevron-right"></i> */}
+            {/* <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-right"></i> */}
         </div>
         <i class="far fa-window-close"  onClick={()=> this.props.remove(this.props.dataMovie.id)} ></i>
     </section>
@@ -41,7 +41,7 @@ class Card extends Component {
 
   <h3 className={this.state.viewMore ? 'titulo-entero' : 'titulo'}>{this.props.dataMovie.title}</h3>
 
-{this.props.direccion ? <p class={this.state.viewMore ? 'description-entera' : 'description'}>{this.props.dataMovie.overview}</p> : <p class="description-entera">{this.props.dataMovie.overview}</p>}
+{this.props.direccion ? <p className={this.state.viewMore ? 'description-entera' : 'description'}>{this.props.dataMovie.overview}</p> : <p class="description-entera">{this.props.dataMovie.overview}</p>}
   
            
         

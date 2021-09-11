@@ -8,3 +8,15 @@ article{
     width: 350px;
     margin: 20px;
 }
+
+body {
+    background-color: #fff;
+}
+
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

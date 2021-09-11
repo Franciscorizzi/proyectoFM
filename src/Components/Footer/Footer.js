@@ -15,8 +15,8 @@ class Footer extends Component {
   return (
 <footer>
 <div class="team">
-    <div>Francisco Rizzi</div>
-    <div>Matteo Lang</div>
+    <div><p>Francisco Rizzi</p></div>
+    <div><p>Matteo Lang</p></div>
 </div>
 </footer>
   );

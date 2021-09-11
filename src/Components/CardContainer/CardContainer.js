@@ -74,13 +74,16 @@ cambiarAFilas(){
         <input type="text" name="search" id="" placeholder="Search"/>
         <button type="submit"><i class="fas fa-search"></i></button>
     </form>
+    
 </section>
+<br></br>
+
       <section className={this.state.filas ? 'card-container-en-filas' : 'card-container-en-columnas'}>
        
      {this.state.datos.map( (pelicula, idx) => <Card direccion={this.state.filas} dataMovie={pelicula} remove={(peliculaABorrar)=> this.deleteCard(peliculaABorrar)} key={idx}/>) }
        
 </section>
- <div>
+ <div className="cargar-mas">
  <button onClick={()=>this.AddMore()} type="button">Cargar más peliculas</button>
  </div>
  </React.Fragment>

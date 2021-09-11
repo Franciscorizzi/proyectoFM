@@ -2,15 +2,18 @@
     display: flex;
     justify-content: space-around;
     align-items: stretch;
+    background-color: #7f052a;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .card-container-en-columnas {
 
     display: flex;
     flex-direction: column;
-
-
+    background-color: #7f052a;
+    border-radius: 5px 5px 0px 0px;
 }
+
 
 .headercito {
     display: flex;
@@ -20,9 +23,8 @@
     padding-top: 2%;
     padding-bottom: 2%;
     background-color: #7f052a;
-    border-radius: 10px 10px 10px 10px;
-    margin-left: 4.4%;
-    margin-right: 4.4%;
+    border-radius: 5px 5px 5px 5px;
+   
 }
 
 i {
@@ -34,4 +36,17 @@ i:hover{
     cursor: pointer;
 }
 
+.cargar-mas {
+    display: flex;
+    justify-content: center;
+    background-color: #7f052a;
+    border-radius: 0px 0px 5px 5px;
+}
 
+.cargar-mas button {
+    padding: 10px;
+    background-color: #b26362;
+    border-radius: 10px 10px 10px 10px;
+    color: black;
+    margin: 15px;
+}

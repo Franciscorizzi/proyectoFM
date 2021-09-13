@@ -7,7 +7,8 @@ class Card extends Component {
     this.state = {
       datos: [],
       ver: 'más',
-      viewMore: false
+      viewMore: false,
+      navego: false
     }
   }
 
@@ -22,6 +23,13 @@ class Card extends Component {
       }
     )
   }}
+
+  poneElMouse(){
+    this.setState({navego: true})
+}
+sacaElMouse(){
+  this.setState({navego: false})
+}
   
   render(){
  
@@ -35,13 +43,13 @@ class Card extends Component {
         </div>
         <i class="far fa-window-close"  onClick={()=> this.props.remove(this.props.dataMovie.id)} ></i>
     </section>
-    <main className={this.props.direccion ? "movie-card-para-filas" : "movie-card-para-columna"}>
+    <main onMouseOver={()=>this.poneElMouse()} onMouseOut={()=> this.sacaElMouse()} className={this.props.direccion ? "movie-card-para-filas" : "movie-card-para-columna"}>
         <img src={`https://image.tmdb.org/t/p/w500${this.props.dataMovie.poster_path}`} alt=""/>
    <div className={this.props.direccion ? "" : "data-en-columna"}>
 
-  <h3 className={this.state.viewMore ? 'titulo-entero' : 'titulo'}>{this.props.dataMovie.title}</h3>
+  <h3 className={this.state.navego ? 'titulo-entero' : 'titulo'}>{this.props.dataMovie.title}</h3>
 
-{this.props.direccion ? <p className={this.state.viewMore ? 'description-entera' : 'description'}>{this.props.dataMovie.overview}</p> : <p class="description-entera">{this.props.dataMovie.overview}</p>}
+{this.props.direccion ? <p className={this.state.navego ? 'description-entera' : 'description'}>{this.props.dataMovie.overview}</p> : <p class="description-entera">{this.props.dataMovie.overview}</p>}
   
            
         

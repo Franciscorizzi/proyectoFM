@@ -36,7 +36,7 @@ class CardContainer extends Component {
     .then(response => response.json())
     .then( data => {
         console.log(data.results);
-        this.setState({peliculasFiltradas: this.state.peliculasFiltradas.concat(data.results), nextUrl: data.page + 1})
+        this.setState({peliculasFiltradas: this.state.peliculasFiltradas.concat(data.results), nextUrl: data.page + 1, datos: this.state.datos.concat(data.results)})
     })
     .catch(error=> console.log(error))
 }

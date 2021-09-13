@@ -12,7 +12,7 @@ function App() {
        
         <CardContainer/>
   </main>
-  <br></br>
+  <br/>
         <Footer/>
     </div>
   );

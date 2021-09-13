@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "../Card/Card";
-import "./CardContainer.css"
+import "./CardContainer.css";
+import Buscador from "../Buscador/Buscador";
 
 class CardContainer extends Component {
   constructor(props){
@@ -9,7 +10,8 @@ class CardContainer extends Component {
       datos: [],
       isLoaded: false,
       nextUrl: "",
-      filas: true
+      filas: true,
+      peliculasFiltradas: []
     }
   }
 
@@ -21,6 +23,7 @@ class CardContainer extends Component {
     .then( data => this.setState(
       {
         datos: data.results,
+        peliculasFiltradas: data.results,
         isLoaded: true,
         nextUrl: data.page + 1
       }
@@ -33,15 +36,15 @@ class CardContainer extends Component {
     .then(response => response.json())
     .then( data => {
         console.log(data.results);
-        this.setState({datos: this.state.datos.concat(data.results), nextUrl: data.page + 1})
+        this.setState({peliculasFiltradas: this.state.peliculasFiltradas.concat(data.results), nextUrl: data.page + 1})
     })
     .catch(error=> console.log(error))
 }
 
 deleteCard(peliculaABorrar){
-  let peliculasQueQuedan = this.state.datos.filter( pelicula => pelicula.id !== peliculaABorrar)
+  let peliculasQueQuedan = this.state.peliculasFiltradas.filter( pelicula => pelicula.id !== peliculaABorrar)
 
-  this.setState({datos: peliculasQueQuedan})
+  this.setState({peliculasFiltradas: peliculasQueQuedan})
 
 }
 
@@ -60,6 +63,10 @@ cambiarAFilas(){
   })
 
 }
+filtrarPeliculas(texto){
+    let peliculasBuscadas = this.state.datos.filter(pelicula => pelicula.title.toLowerCase().includes(texto.toLowerCase()))
+    this.setState({peliculasFiltradas: peliculasBuscadas})
+}
 
   render(){
   return (
@@ -69,18 +76,16 @@ cambiarAFilas(){
     <i  onClick={()=>this.cambiarAFilas()} className="fas fa-th"></i>
     <i onClick={()=>this.cambiarAColumnas()} className="fas fa-align-justify"></i>
     </div>
-    <form action="">
-        <input type="text" name="search" id="" placeholder="Search"/>
-        <button type="submit"><i className="fas fa-search"></i></button>
-    </form>
-    
+  <Buscador busco={(texto)=> this.filtrarPeliculas(texto)}/>    
 </section>
 <br></br>
 
       <section className={this.state.filas ? 'card-container-en-filas' : 'card-container-en-columnas'}>
        
-     {this.state.datos.map( (pelicula, idx) => <Card direccion={this.state.filas} dataMovie={pelicula} remove={(peliculaABorrar)=> this.deleteCard(peliculaABorrar)} key={idx}/>) }
-       
+      { this.state.isLoaded === false ? 
+            <p>Cargando...</p> :
+     this.state.peliculasFiltradas.map( (pelicula, idx) => <Card direccion={this.state.filas} dataMovie={pelicula} remove={(peliculaABorrar)=> this.deleteCard(peliculaABorrar)} key={idx}/>) 
+      }
 </section>
  <div className="cargar-mas">
  <button onClick={()=>this.AddMore()} type="button">Cargar más peliculas</button>

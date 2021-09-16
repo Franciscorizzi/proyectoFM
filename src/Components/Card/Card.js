@@ -38,8 +38,8 @@ sacaElMouse(){
 <article className={this.props.direccion ? "" : "todo"}>
 <section className={this.props.direccion ? "navigation-para-fila" : "navigation-para-columna"}>
         <div>
-            {/* <i className="fas fa-chevron-left"></i>
-            <i className="fas fa-chevron-right"></i> */}
+             <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-right"></i> 
         </div>
         <i class="far fa-window-close"  onClick={()=> this.props.remove(this.props.dataMovie.id)} ></i>
     </section>

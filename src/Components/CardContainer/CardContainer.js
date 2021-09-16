@@ -11,7 +11,8 @@ class CardContainer extends Component {
       isLoaded: false,
       nextUrl: "",
       filas: true,
-      peliculasFiltradas: []
+      peliculasFiltradas: [],
+      titulos: []
     }
   }
 
@@ -25,7 +26,7 @@ class CardContainer extends Component {
         datos: data.results,
         peliculasFiltradas: data.results,
         isLoaded: true,
-        nextUrl: data.page + 1
+        nextUrl: data.page + 1,
       }
     ) )
     .catch( error => console.log(error) )
@@ -43,8 +44,9 @@ class CardContainer extends Component {
 
 deleteCard(peliculaABorrar){
   let peliculasQueQuedan = this.state.peliculasFiltradas.filter( pelicula => pelicula.id !== peliculaABorrar)
+  let peliculasQueDejamos = this.state.datos.filter( pelicula => pelicula.id !== peliculaABorrar)
 
-  this.setState({peliculasFiltradas: peliculasQueQuedan})
+  this.setState({peliculasFiltradas: peliculasQueQuedan, datos: peliculasQueDejamos})
 
 }
 
@@ -68,6 +70,15 @@ filtrarPeliculas(texto){
     this.setState({peliculasFiltradas: peliculasBuscadas})
 }
 
+// ordenarPeliculas(){
+//     let titulosOrdenados = this.state.datos.map(titulos => titulos.title);
+//     let peliculasOrdenadas = titulosOrdenados.sort()
+
+//     console.log(peliculasOrdenadas);
+//     this.setState({peliculasFiltradas: peliculasOrdenadas, titulos: titulosOrdenados})
+// }
+
+
   render(){
   return (
     <React.Fragment>
@@ -75,6 +86,7 @@ filtrarPeliculas(texto){
     <div className="iconos">
     <i  onClick={()=>this.cambiarAFilas()} className="fas fa-th"></i>
     <i onClick={()=>this.cambiarAColumnas()} className="fas fa-align-justify"></i>
+    {/* <h2 onClick={()=> this.ordenarPeliculas()}>A-Z</h2> */}
     </div>
   <Buscador busco={(texto)=> this.filtrarPeliculas(texto)}/>    
 </section>

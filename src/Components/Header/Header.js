@@ -1,19 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Header.css";
 
-class Header extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      ver: 'más',
-      viewMore: false,
-      descripcion: false,
-    }
-  }
 
- 
-
-  render(){
+function Header (){
   return (
 
   <div className="titulardo">
@@ -21,7 +10,7 @@ class Header extends Component {
 </div>
 
   );
-  }
+  
 }
 
 export default Header;

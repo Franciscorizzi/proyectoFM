@@ -24,11 +24,13 @@ class Card extends Component {
     )
   }}
 
-  poneElMouse(){
+
+funcionMouseOver(){
+  if(this.state.navego === true){
+    this.setState({navego: false})
+  } else {
     this.setState({navego: true})
-}
-sacaElMouse(){
-  this.setState({navego: false})
+  }
 }
   
   render(){
@@ -43,7 +45,7 @@ sacaElMouse(){
         </div>
         <i class="far fa-window-close"  onClick={()=> this.props.remove(this.props.dataMovie.id)} ></i>
     </section>
-    <main onMouseOver={()=>this.poneElMouse()} onMouseOut={()=> this.sacaElMouse()} className={this.props.direccion ? "movie-card-para-filas" : "movie-card-para-columna"}>
+    <main onMouseOver={()=>this.funcionMouseOver()} onMouseOut={()=> this.funcionMouseOver()} className={this.props.direccion ? "movie-card-para-filas" : "movie-card-para-columna"}>
         <img src={`https://image.tmdb.org/t/p/w500${this.props.dataMovie.poster_path}`} alt=""/>
    <div className={this.props.direccion ? "" : "data-en-columna"}>
 

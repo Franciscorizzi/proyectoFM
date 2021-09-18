@@ -95,8 +95,8 @@ filtrarPeliculas(texto){
     <React.Fragment>
       <section className="headercito">
     <div className="iconos">
-    <i  onClick={()=>this.cambiarAFilas()} className="fas fa-th"></i>
-    <i onClick={()=>this.cambiarAColumnas()} className="fas fa-align-justify"></i>
+    <i  onClick={()=>this.cambioFilasColumnas()} className="fas fa-th"></i>
+    <i onClick={()=>this.cambioFilasColumnas()} className="fas fa-align-justify"></i>
     </div>
   <Buscador busco={(texto)=> this.filtrarPeliculas(texto)}/>    
 </section>

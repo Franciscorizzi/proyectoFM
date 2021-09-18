@@ -36,7 +36,7 @@ funcionMouseOver(){
   render(){
  
   return (
-    
+    /* si "direccion" es true, el estado del componente padre contiene filas: true*/
 <article className={this.props.direccion ? "" : "todo"}>
 <section className={this.props.direccion ? "navigation-para-fila" : "navigation-para-columna"}>
         <div>

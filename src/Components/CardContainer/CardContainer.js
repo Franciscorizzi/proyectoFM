@@ -67,6 +67,7 @@ cambiarAFilas(){
 }
 filtrarPeliculas(texto){
     let peliculasBuscadas = this.state.datos.filter(pelicula => pelicula.title.toLowerCase().includes(texto.toLowerCase()))
+    
     this.setState({peliculasFiltradas: peliculasBuscadas})
 }
 
@@ -80,6 +81,30 @@ filtrarPeliculas(texto){
 
 
   render(){
+    if(this.state.peliculasFiltradas.length === 0){
+      return (
+        <React.Fragment>
+      <section className="headercito">
+    <div className="iconos">
+    <i  onClick={()=>this.cambiarAFilas()} className="fas fa-th"></i>
+    <i onClick={()=>this.cambiarAColumnas()} className="fas fa-align-justify"></i>
+    {/* <h2 onClick={()=> this.ordenarPeliculas()}>A-Z</h2> */}
+    </div>
+  <Buscador busco={(texto)=> this.filtrarPeliculas(texto)}/>    
+</section>
+<br></br>
+
+      <section className={this.state.filas ? 'card-container-en-filas' : 'card-container-en-columnas'}>
+       
+      { this.state.isLoaded === false ? 
+            <p>Cargando...</p> : <p className="sin-resultados-busqueda">No se encontraron resultados para tu busqueda.</p> }
+</section>
+ <div className="cargar-mas">
+ <button onClick={()=>this.AddMore()} type="button">Cargar más peliculas</button>
+ </div>
+ </React.Fragment>
+      )
+    } else {
   return (
     <React.Fragment>
       <section className="headercito">
@@ -95,7 +120,7 @@ filtrarPeliculas(texto){
       <section className={this.state.filas ? 'card-container-en-filas' : 'card-container-en-columnas'}>
        
       { this.state.isLoaded === false ? 
-            <p>Cargando...</p> :
+            <p>Cargando...</p> : 
      this.state.peliculasFiltradas.map( (pelicula, idx) => <Card direccion={this.state.filas} dataMovie={pelicula} remove={(peliculaABorrar)=> this.deleteCard(peliculaABorrar)} key={idx}/>) 
       }
 </section>
@@ -104,6 +129,7 @@ filtrarPeliculas(texto){
  </div>
  </React.Fragment>
   );
+    }
   }
 }
 

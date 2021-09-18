@@ -50,14 +50,13 @@ deleteCard(peliculaABorrar){
 }
 
 
-cambioFilasColumnas(){
-  if(this.state.filas === true){
-    this.setState({filas: false})
-  } else {
-    this.setState({filas: true})
-  }
+cambioAFilas(){
+  this.setState({filas: true})
 }
 
+cambioAColumnas(){
+  this.setState({filas: false})
+}
 
 filtrarPeliculas(texto){
     let peliculasBuscadas = this.state.datos.filter(pelicula => pelicula.title.toLowerCase().includes(texto.toLowerCase()))
@@ -72,8 +71,8 @@ filtrarPeliculas(texto){
         <React.Fragment>
       <section className="headercito">
     <div className="iconos">
-    <i  onClick={()=>this.cambioFilasColumnas()} className="fas fa-th"></i>
-    <i onClick={()=>this.cambioFilasColumnas()} className="fas fa-align-justify"></i>
+    <i  onClick={()=>this.cambioAFilas()} className="fas fa-th"></i>
+    <i onClick={()=>this.cambioAColumnas()} className="fas fa-align-justify"></i>
     {/* <h2 onClick={()=> this.ordenarPeliculas()}>A-Z</h2> */}
     </div>
   <Buscador busco={(texto)=> this.filtrarPeliculas(texto)}/>    
@@ -95,8 +94,8 @@ filtrarPeliculas(texto){
     <React.Fragment>
       <section className="headercito">
     <div className="iconos">
-    <i  onClick={()=>this.cambioFilasColumnas()} className="fas fa-th"></i>
-    <i onClick={()=>this.cambioFilasColumnas()} className="fas fa-align-justify"></i>
+    <i  onClick={()=>this.cambioAFilas()} className="fas fa-th"></i>
+    <i onClick={()=>this.cambioAColumnas()} className="fas fa-align-justify"></i>
     </div>
   <Buscador busco={(texto)=> this.filtrarPeliculas(texto)}/>    
 </section>

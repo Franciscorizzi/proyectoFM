@@ -55,9 +55,14 @@ funcionMouseOver(){
   
            
         
-          {this.props.direccion ? <div className="aditional-info"> <p className={this.state.viewMore ? 'show' : 'hide'}>Rating: {this.props.dataMovie.vote_average}</p>
+          {this.props.direccion ? 
+        <div className="aditional-info"> 
+        <p className={this.state.viewMore ? 'show' : 'hide'}>Rating: {this.props.dataMovie.vote_average}</p>
         <p className={this.state.viewMore ? 'show' : 'hide'}>Fecha de estreno: {this.props.dataMovie.release_date}</p> 
-        <p className={this.state.viewMore ? 'show' : 'hide'}>Cantidad de reproducciones: {this.props.dataMovie.popularity}</p>  <p className="link" onClick={()=>this.clickeame()}>Ver {this.state.ver}</p></div> :  <div className="aditional-info"><p className="show">Rating: {this.props.dataMovie.vote_average}</p>
+        <p className={this.state.viewMore ? 'show' : 'hide'}>Cantidad de reproducciones: {this.props.dataMovie.popularity}</p> 
+        <p className="link" onClick={()=>this.clickeame()}>Ver {this.state.ver}</p></div>
+         : 
+        <div className="aditional-info"><p className="show">Rating: {this.props.dataMovie.vote_average}</p>
         <p className="show">Fecha de estreno: {this.props.dataMovie.release_date}</p> 
         <p className="show">Cantidad de reproducciones: {this.props.dataMovie.popularity}</p> </div>}
      

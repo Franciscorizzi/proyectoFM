@@ -9,7 +9,6 @@ class Buscador extends Component {
   }
   evitarSubmit(e){
     e.preventDefault()
-    console.log('evitando submit');
   }
   controlarCambios(event){
       this.setState({valor: event.target.value},

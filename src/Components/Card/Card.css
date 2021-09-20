@@ -21,6 +21,8 @@
 .navigation-para-fila {
     margin-bottom: 3px;
     color: #b26362;
+    display: flex;
+    justify-content: space-between;
 
 }
 

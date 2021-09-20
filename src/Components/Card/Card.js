@@ -22,10 +22,11 @@ class Card extends Component {
         viewMore: false
       }
     )
-  }}
+  }
+}
 
 
-funcionMouseOver(){
+metodoMouseOver(){
   if(this.state.navego === true){
     this.setState({navego: false})
   } else {
@@ -36,7 +37,6 @@ funcionMouseOver(){
   render(){
  
   return (
-    /* si "direccion" es true, el estado del componente padre contiene filas: true*/
 <article className={this.props.direccion ? "" : "todo"}>
 <section className={this.props.direccion ? "navigation-para-fila" : "navigation-para-columna"}>
         <div>
@@ -45,7 +45,7 @@ funcionMouseOver(){
         </div>
         <i class="far fa-window-close"  onClick={()=> this.props.remove(this.props.dataMovie.id)} ></i>
     </section>
-    <main onMouseOver={()=>this.funcionMouseOver()} onMouseOut={()=> this.funcionMouseOver()} className={this.props.direccion ? "movie-card-para-filas" : "movie-card-para-columna"}>
+    <main onMouseOver={()=>this.metodoMouseOver()} onMouseOut={()=> this.metodoMouseOver()} className={this.props.direccion ? "movie-card-para-filas" : "movie-card-para-columna"}>
         <img src={`https://image.tmdb.org/t/p/w500${this.props.dataMovie.poster_path}`} alt=""/>
    <div className={this.props.direccion ? "" : "data-en-columna"}>
 
@@ -62,7 +62,8 @@ funcionMouseOver(){
         <p className={this.state.viewMore ? 'show' : 'hide'}>Cantidad de reproducciones: {this.props.dataMovie.popularity}</p> 
         <p className="link" onClick={()=>this.clickeame()}>Ver {this.state.ver}</p></div>
          : 
-        <div className="aditional-info"><p className="show">Rating: {this.props.dataMovie.vote_average}</p>
+        <div className="aditional-info">
+        <p className="show">Rating: {this.props.dataMovie.vote_average}</p>
         <p className="show">Fecha de estreno: {this.props.dataMovie.release_date}</p> 
         <p className="show">Cantidad de reproducciones: {this.props.dataMovie.popularity}</p> </div>}
      
